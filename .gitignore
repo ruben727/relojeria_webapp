@@ -1,0 +1,60 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+.venv
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+data/relojeria.db
+
+# Logs
+*.log
+logs/
+
+# Archivos de configuración local
+.env
+.env.local
+.env.*.local
+
+# Coverage
+.coverage
+htmlcov/
+.coverage.*
+.cache
+
+# Pytest
+.pytest_cache/
+.tox/
+dist/
+build/
+
+# Dependencias locales
+dist/
+*.egg-info/
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Backups
+backups/
+*.bak
