@@ -51,8 +51,8 @@ dist/
 *.egg-info/
 
 # Docker
-.dockerignore
-Dockerfile
+#.dockerignore
+#Dockerfile
 docker-compose.yml
 
 # Backups
