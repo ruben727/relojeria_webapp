@@ -1,17 +1,18 @@
-# ============================================================================
-# DATOS INICIALES
-# Los relojes de esta lista se insertan al arrancar la app (en cada deploy).
-# Para agregar uno nuevo: añádelo a la lista, haz commit y push.
-# ============================================================================
 
 SEED_RELOJES = [
     {
-        "modelo": "Reloj de Jona",
+        "modelo": "Reloj de pulsera clásico",
         "marca": "UTEQ",
         "precio": 10500.0,
         "stock": 3
     },
 ]
+
+
+
+
+
+
 
 def seed_db(conn):
     '''Inserta los relojes de SEED_RELOJES que aún no existan (por modelo y marca)'''
