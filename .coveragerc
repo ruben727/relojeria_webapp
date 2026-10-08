@@ -1,0 +1,6 @@
+[run]
+omit =
+    */app/endpoints/*
+    */app/models.py
+    */app/mock_endpoints.py
+    */tests/*
