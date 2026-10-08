@@ -82,6 +82,19 @@ class TestEndpoints:
         response = client.get("/api/reparaciones/costosa")
         assert response.status_code == 404
 
+    def test_seed_reloj_insertado(self, client):
+        from app.seed import SEED_RELOJES
+        response = client.get("/api/relojes")
+        modelos = [r["modelo"] for r in response.json()["data"]]
+        for reloj in SEED_RELOJES:
+            assert reloj["modelo"] in modelos
+
+    def test_seed_no_duplica(self, client):
+        from app.main import init_db
+        antes = client.get("/api/relojes").json()["total"]
+        init_db()
+        assert client.get("/api/relojes").json()["total"] == antes
+
     def test_stats(self, client):
         response = client.get("/api/stats")
         assert response.status_code == 200

@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 import sqlite3
 from pathlib import Path
+from app.seed import seed_db
 
 app = FastAPI(
     title="API Relojería",
@@ -64,6 +65,7 @@ def init_db():
     );
     """)
     conn.commit()
+    seed_db(conn)
     conn.close()
 
 @app.on_event("startup")
