@@ -1,7 +1,7 @@
 
 SEED_RELOJES = [
     {
-        "modelo": "Reloj de pulsera clásico",
+        "modelo": "Reloj de pulsera profe",
         "marca": "UTEQ",
         "precio": 10500.0,
         "stock": 3
