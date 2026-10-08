@@ -98,7 +98,7 @@ jobs:
         chmod 600 ~/.ssh/deploy_key.pem
         ssh-keyscan -H $EC2_HOST >> ~/.ssh/known_hosts 2>/dev/null
         
-        ssh -i ~/.ssh/deploy_key.pem $EC2_USER@$EC2_HOST << 'DEPLOY_EOF'
+        ssh -i ~/.ssh/deploy_key.pem $EC2_USER@$EC2_HOST << DEPLOY_EOF
           set -e
           docker pull $DOCKER_USERNAME/$IMAGE_NAME:latest
           docker stop relojeria || true
