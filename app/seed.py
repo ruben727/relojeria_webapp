@@ -6,10 +6,10 @@
 
 SEED_RELOJES = [
     {
-        "modelo": "Submariner Date",
-        "marca": "Rolex",
+        "modelo": "Reloj de pueba1",
+        "marca": "UTEQ",
         "precio": 10500.0,
-        "stock": 2
+        "stock": 3
     },
 ]
 
