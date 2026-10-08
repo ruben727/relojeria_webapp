@@ -58,3 +58,7 @@ docker-compose.yml
 # Backups
 backups/
 *.bak
+
+# Claves y certificados
+*.pem
+*.key
