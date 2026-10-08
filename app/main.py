@@ -72,7 +72,7 @@ def startup():
     print("✅ Base de datos inicializada")
 
 # ============================================================================
-# ENDPOINTS - 6 TOTALES
+# ENDPOINTS - 8 TOTALES
 # ============================================================================
 
 # 1. GET /api/health
@@ -124,6 +124,21 @@ def crear_reloj(reloj: Reloj):
         conn.close()
         raise HTTPException(status_code=400, detail=str(e))
 
+# 7. GET /api/relojes/premium
+@app.get("/api/relojes/premium", tags=["Relojes"])
+def listar_relojes_premium():
+    '''Obtiene los relojes premium (precio >= 1000)'''
+    conn = get_db()
+    relojes = conn.execute(
+        "SELECT * FROM relojes WHERE precio >= 1000 ORDER BY precio DESC"
+    ).fetchall()
+    conn.close()
+    return {
+        "statusCode": 200,
+        "total": len(relojes),
+        "data": [dict(r) for r in relojes]
+    }
+
 # 4. GET /api/reparaciones
 @app.get("/api/reparaciones", tags=["Reparaciones"])
 def listar_reparaciones():
@@ -163,6 +178,22 @@ def crear_reparacion(reparacion: Reparacion):
         conn.close()
         raise HTTPException(status_code=400, detail=str(e))
 
+# 8. GET /api/reparaciones/costosa
+@app.get("/api/reparaciones/costosa", tags=["Reparaciones"])
+def reparacion_mas_costosa():
+    '''Obtiene la reparación más costosa'''
+    conn = get_db()
+    reparacion = conn.execute(
+        "SELECT * FROM reparaciones ORDER BY costo DESC LIMIT 1"
+    ).fetchone()
+    conn.close()
+    if reparacion is None:
+        raise HTTPException(status_code=404, detail="No hay reparaciones registradas")
+    return {
+        "statusCode": 200,
+        "data": dict(reparacion)
+    }
+
 # 6. GET /api/stats
 @app.get("/api/stats", tags=["Sistema"])
 def estadisticas():
@@ -189,7 +220,9 @@ def root():
         "endpoints": {
             "health": "/api/health",
             "relojes": "/api/relojes",
+            "⭐ relojes_premium": "/api/relojes/premium",
             "reparaciones": "/api/reparaciones",
+            "⭐ reparacion_costosa": "/api/reparaciones/costosa",
             "stats": "/api/stats"
         }
     }
