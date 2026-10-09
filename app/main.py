@@ -82,7 +82,7 @@ def startup():
 def health_check():
     '''Verifica que la API esté operacional'''
     return {
-        "statusCode": 209,
+        "statusCode": 2000,
         "status": "healthy 2",
         "timestamp": datetime.now().isoformat(),
         "version": "1.0.0"
