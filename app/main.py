@@ -73,17 +73,14 @@ def startup():
     init_db()
     print("✅ Base de datos inicializada")
 
-# ============================================================================
-# ENDPOINTS - 8 TOTALES
-# ============================================================================
 
 # 1. GET /api/health
 @app.get("/api/health", tags=["Sistema"])
 def health_check():
     '''Verifica que la API esté operacional'''
     return {
-        "statusCode": 2000,
-        "status": "healthy 2",
+        "statusCode": 200,
+        "status": "healthy",
         "timestamp": datetime.now().isoformat(),
         "version": "1.0.0"
     }
