@@ -82,7 +82,7 @@ def health_check():
         "statusCode": 200,
         "status": "healthy",
         "timestamp": datetime.now().isoformat(),
-        "version": "1.0.0"
+        "version": "2.0.0"
     }
 
 # 2. GET /api/relojes
